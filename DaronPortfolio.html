@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daron Shen — Portfolio</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+:root {
+  --paper: #F5F0E8;
+  --paper-dark: #EDE6DA;
+  --ink: #1A1A1A;
+  --ink-soft: #4A4A4A;
+  --ink-mute: #8A8A8A;
+  --accent: #8B1A1A;
+  --accent-light: #A52A2A;
+  --hairline: rgba(26,26,26,0.15);
+  --serif-en: 'Playfair Display', Georgia, serif;
+  --serif-cn: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 期号条 */
+.issue-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: var(--serif-en);
+}
+.issue-bar .left { display: flex; gap: 24px; }
+.issue-bar .right { font-style: italic; }
+
+/* 导航 */
+nav {
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+nav .logo {
+  font-family: var(--serif-en);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+nav .logo span { color: var(--accent); }
+nav ul { list-style: none; display: flex; gap: 32px; }
+nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--serif-en);
+  position: relative;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--accent); }
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* 通用区块 */
+section { padding: 80px 40px; }
+.section-label {
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+.section-title {
+  font-family: var(--serif-cn);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+.section-title em {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 0.6em;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 40px 80px;
+  border-bottom: 1px solid var(--hairline);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-photo {
+  position: relative;
+}
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.14);
+  display: block;
+  background: var(--paper-dark);
+}
+.hero-name {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.hero-name .name-cn {
+  font-family: var(--serif-cn);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--ink);
+}
+.hero-name .name-en {
+  font-family: var(--serif-en);
+  font-size: 20px;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.hero .kicker {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--serif-cn);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  max-width: 900px;
+}
+.hero h1 .en {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  display: block;
+  font-size: 0.45em;
+  margin-top: 16px;
+}
+.hero .deck {
+  font-family: var(--serif-cn);
+  font-size: 20px;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin-top: 32px;
+  line-height: 1.75;
+  font-style: italic;
+  text-wrap: balance;
+}
+.hero .byline {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-family: var(--serif-en);
+}
+.hero .byline strong {
+  color: var(--ink);
+  display: block;
+  font-size: 14px;
+  margin-top: 4px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--serif-cn);
+}
+
+/* 筛选器 */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--hairline);
+  background: transparent;
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--ink-soft);
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent);
+}
+
+/* 作品目录列表 */
+.toc-list { border-top: 1px solid var(--hairline); }
+.toc-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 200px 100px;
+  gap: 24px;
+  padding: 28px 16px;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.toc-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.25s;
+}
+.toc-item:hover { background: rgba(139,26,26,0.03); }
+.toc-item:hover::before { transform: scaleY(1); }
+.toc-num {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  color: var(--ink-mute);
+  padding-top: 4px;
+}
+.toc-main h3 {
+  font-family: var(--serif-cn);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.toc-item:hover .toc-main h3 { color: var(--accent); }
+.toc-main p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.toc-type {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 6px;
+}
+.toc-year {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  color: var(--ink-mute);
+  text-align: right;
+  padding-top: 4px;
+}
+
+/* 作品画廊 */
+.gallery-section {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--hairline);
+}
+.gallery-label {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 32px;
+}
+.series-block {
+  margin-bottom: 64px;
+}
+.series-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+.series-header h4 {
+  font-family: var(--serif-cn);
+  font-size: 20px;
+  font-weight: 700;
+}
+.series-header .series-meta {
+  font-family: var(--serif-en);
+  font-size: 12px;
+  color: var(--ink-mute);
+  letter-spacing: 1px;
+}
+.series-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.series-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--hairline);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.series-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* 视频作品 */
+.video-wrap {
+  border: 1px solid var(--hairline);
+  background: #1a1a1a;
+  line-height: 0;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+}
+.video-wrap video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+}
+
+/* 策划案卡片 */
+.strategy-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--hairline);
+  background: var(--paper-dark);
+  margin-top: 40px;
+}
+.strategy-cover {
+  min-height: 360px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+.strategy-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.strategy-cover img.cover-left {
+  object-position: left top;
+}
+.strategy-cover .pdf-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(0,0,0,0.6);
+  color: var(--paper);
+  padding: 6px 14px;
+  font-family: var(--serif-en);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.strategy-content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.strategy-tag {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.strategy-content h3 {
+  font-family: var(--serif-cn);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.strategy-content p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.strategy-content .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+.strategy-content .btn:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+.strategy-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  font-family: var(--serif-en);
+  letter-spacing: 1px;
+}
+.strategy-meta strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  margin-top: 4px;
+  font-family: var(--serif-cn);
+  letter-spacing: 0;
+}
+
+/* About */
+.about { background: var(--paper-dark); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.about-text p:first-child::first-letter {
+  font-family: var(--serif-en);
+  font-size: 72px;
+  float: left;
+  line-height: 0.8;
+  padding-right: 12px;
+  padding-top: 6px;
+  color: var(--accent);
+  font-weight: 700;
+}
+.about-text p {
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  color: var(--ink-soft);
+}
+.about-text p strong { color: var(--ink); }
+.skills-table { border-top: 1px solid var(--hairline); }
+.skill-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+}
+.skill-cat {
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.skill-items {
+  font-family: var(--serif-cn);
+  font-size: 15px;
+  color: var(--ink);
+}
+.skill-items span {
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 4px;
+}
+
+/* Contact */
+.colophon {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 40px 40px;
+}
+.colophon .section-label { color: var(--accent-light); }
+.colophon .section-label::before { background: var(--accent-light); }
+.colophon-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(245,240,232,0.15);
+}
+.colophon h4 {
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 20px;
+}
+.colophon p, .colophon a {
+  font-size: 14px;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.colophon a:hover { color: var(--paper); }
+.colophon .big-email {
+  font-family: var(--serif-en);
+  font-size: 36px;
+  font-style: italic;
+  color: var(--paper);
+  margin-top: 16px;
+  display: block;
+}
+.colophon-bottom {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(245,240,232,0.4);
+  font-family: var(--serif-en);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .issue-bar { padding: 8px 20px; font-size: 10px; }
+  nav { padding: 16px 20px; flex-direction: column; gap: 16px; }
+  nav ul { gap: 20px; flex-wrap: wrap; }
+  section { padding: 60px 20px; }
+  .hero { padding: 60px 20px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-photo { max-width: 380px; }
+  .hero h1 { font-size: 44px; }
+  .hero .byline { grid-template-columns: 1fr; gap: 20px; }
+  .hero-name { margin-top: 22px; margin-bottom: 0; }
+  .hero-name .name-cn { font-size: 22px; letter-spacing: 4px; }
+  .hero-name .name-en { font-size: 16px; }
+  .section-title { font-size: 32px; }
+  .toc-item { grid-template-columns: 40px 1fr; gap: 12px; }
+  .toc-type, .toc-year { grid-column: 2; padding-top: 0; }
+  .toc-year { text-align: left; }
+  .series-grid { grid-template-columns: 1fr; gap: 16px; }
+  .strategy-card { grid-template-columns: 1fr; }
+  .strategy-cover { min-height: 240px; }
+  .strategy-content { padding: 32px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .colophon-grid { grid-template-columns: 1fr; gap: 40px; }
+  .colophon .big-email { font-size: 24px; }
+}
+
+/* ===== Unreveal 全屏揭示预览 ===== */
+body.preview-open { overflow: hidden; }
+.series-grid img { cursor: zoom-in; }
+.reveal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 150vmax;
+  height: 150vmax;
+  margin: -75vmax 0 0 -75vmax;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 98;
+  will-change: transform;
+  visibility: hidden;
+}
+.reveal-overlay__inner {
+  position: absolute;
+  inset: 0;
+  background: #161514;
+  border-radius: 50%;
+}
+.work-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  visibility: hidden;
+  padding: 48px 24px;
+}
+.work-preview.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+.work-preview__inner {
+  display: grid;
+  grid-template-columns: auto minmax(340px, 1fr);
+  gap: 72px;
+  align-items: center;
+  max-width: 1180px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.work-preview__media { width: fit-content; }
+.work-preview__img-outer {
+  height: calc(100vh - 140px);
+  max-height: 900px;
+  aspect-ratio: 3 / 4;
+  width: auto;
+  overflow: hidden;
+  will-change: transform;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+  border: 1px solid rgba(234,227,214,0.08);
+  border-radius: 6px;
+}
+.work-preview__img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+.work-preview__img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+.work-preview__video-outer {
+  display: none;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  will-change: transform;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+}
+.work-preview__video-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+.work-preview__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+.work-preview__info {
+  color: #EAE3D6;
+}
+.work-preview__series {
+  font-family: var(--serif-cn);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #EAE3D6;
+  margin-bottom: 14px;
+}
+.work-preview__type {
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C25B5B;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.work-preview__desc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(234,227,214,0.72);
+  max-width: 440px;
+  text-wrap: balance;
+}
+.work-preview__btn {
+  display: none;
+  margin-top: 28px;
+  padding: 12px 28px;
+  border: 1px solid #C25B5B;
+  color: #C25B5B;
+  text-decoration: none;
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+.work-preview__btn:hover {
+  background: #C25B5B;
+  color: #EAE3D6;
+}
+.work-preview__close {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  z-index: 3;
+  background: none;
+  border: 1px solid rgba(234,227,214,0.4);
+  color: #EAE3D6;
+  width: 46px;
+  height: 46px;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.work-preview__close:hover {
+  background: rgba(234,227,214,0.14);
+  border-color: #EAE3D6;
+  transform: rotate(90deg);
+}
+/* 点击交互提示 */
+.click-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--serif-en);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-left: 14px;
+  vertical-align: middle;
+}
+.click-hint::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: hintPulse 1.6s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.6); }
+}
+/* 海报缩略图 hover 交互提示 */
+.poster-item {
+  position: relative;
+  cursor: pointer;
+}
+.poster-item::after {
+  content: '点击交互';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22,21,20,0);
+  color: #fff;
+  font-family: var(--serif-en);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: all 0.25s;
+  pointer-events: none;
+  z-index: 2;
+}
+.poster-item:hover::after {
+  background: rgba(22,21,20,0.45);
+  opacity: 1;
+}
+.poster-item:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+/* 深色海报预览浅色衬底（与图片同层，随揭示动画一起滑入） */
+.work-preview__img-outer.has-matte .work-preview__img {
+  background-color: #F5F0E8;
+  padding: 28px;
+  background-clip: content-box;
+  background-origin: content-box;
+  background-position: 50% 50%;
+}
+@media (max-width: 900px) {
+  .work-preview__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    overflow-y: auto;
+    max-height: 100%;
+    padding: 64px 8px 24px;
+  }
+  .work-preview__img-outer,
+  .work-preview__video-outer {
+    max-width: 340px;
+    justify-self: center;
+  }
+  .work-preview__series { font-size: 26px; }
+  .work-preview__close { top: 18px; right: 18px; }
+}
+
+/* ===== Theodore 风格全屏菜单 ===== */
+nav { align-items: center; }
+.menu-trigger {
+  background: none;
+  border: 1px solid var(--ink);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  color: var(--ink);
+  transition: all 0.3s;
+  margin-left: 24px;
+  flex-shrink: 0;
+}
+.menu-trigger:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.theo-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  pointer-events: none;
+}
+.theo-overlay__path { fill: #161514; }
+.theo-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: #161514;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+}
+.theo-menu.is-open {
+  pointer-events: auto;
+  opacity: 1;
+}
+/* 无限滚动图块背景 */
+.theo-tiles {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 150vh;
+  display: flex;
+  opacity: 0.32;
+  flex-direction: column;
+  justify-content: center;
+  transform: translate3d(-50%, -50%, 0) rotate(22.5deg);
+}
+.theo-tiles__line {
+  display: flex;
+  transform: translateX(25%);
+  animation: theoRunner 14s linear infinite;
+}
+.theo-tiles__line:nth-child(2) { animation-duration: 20s; }
+.theo-tiles__line:nth-child(3) { animation-duration: 26s; }
+@keyframes theoRunner {
+  to { transform: translateX(-25%); }
+}
+.theo-tiles__img {
+  flex: none;
+  width: 20vh;
+  height: 20vh;
+  margin: 2vh;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 12px;
+}
+.theo-tiles__img--large {
+  width: 36vh;
+  border-radius: 16px;
+}
+/* 大文字导航 */
+.theo-menu__nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 4px;
+}
+.theo-menu__item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  text-decoration: none;
+  color: #EAE3D6;
+  font-family: var(--serif-cn);
+  font-size: clamp(36px, 6.5vw, 88px);
+  font-weight: 700;
+  line-height: 1.15;
+  transition: color 0.25s;
+  will-change: transform, opacity;
+}
+.theo-menu__item:hover { color: #C25B5B; }
+.theo-menu__item-num {
+  font-family: var(--serif-en);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #C25B5B;
+  font-weight: 400;
+  align-self: center;
+  min-width: 28px;
+}
+.theo-menu__item-sub {
+  font-family: var(--serif-en);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(234,227,214,0.45);
+  font-weight: 400;
+}
+.theo-menu__footer {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 32px;
+  font-family: var(--serif-en);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(234,227,214,0.45);
+  z-index: 2;
+  white-space: nowrap;
+}
+.theo-menu__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  z-index: 3;
+  background: none;
+  border: 1px solid rgba(234,227,214,0.4);
+  color: #EAE3D6;
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.25s;
+}
+.theo-menu__close:hover {
+  background: rgba(234,227,214,0.14);
+  border-color: #EAE3D6;
+  transform: rotate(90deg);
+}
+body.menu-open { overflow: hidden; }
+@media (max-width: 600px) {
+  .theo-menu__footer { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+  .theo-menu__item { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 期号条 -->
+<div class="issue-bar">
+  <div class="left">
+    <span>Vol.01</span>
+    <span>2026</span>
+    <span>Portfolio</span>
+  </div>
+  <div class="right">Daron Shen / 沈达人</div>
+</div>
+
+<!-- 导航 -->
+<nav>
+  <div class="logo">Daron<span>.</span></div>
+  <div style="display:flex;align-items:center;">
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-trigger" aria-label="打开菜单">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+        <line x1="0" y1="1" x2="20" y2="1" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="0" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="0" y1="13" x2="20" y2="13" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="kicker">Design · Strategy · Creative</div>
+      <h1>
+        用叙事驱动增长，<br>以创意抵达人心。
+        <span class="en">Where strategy meets storytelling.</span>
+      </h1>
+      <div class="hero-name">
+        <span class="name-cn">沈达人</span>
+        <span class="name-en">Daron Shen</span>
+      </div>
+      <p class="deck">暨南大学传播学硕士，主攻智能营销与消费者行为。专注于品牌策略、平面设计与内容营销，在数据与创意之间，寻找品牌与人的真实连接。</p>
+      <div class="byline">
+        <div>Based in<strong>广州 / 深圳</strong></div>
+        <div>Education<strong>暨南大学 · 传播学硕士</strong></div>
+        <div>Focus<strong>品牌策划 · 平面设计 · 内容营销</strong></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://aka.doubaocdn.com/s/WJmNaWXClH" alt="沈达人个人照片">
+    </div>
+  </div>
+</header>
+
+<!-- 作品目录 -->
+<section id="work">
+  <div class="section-label">02 — Index</div>
+  <h2 class="section-title">作品目录<em>Table of Contents</em></h2>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="design">Design</button>
+    <button class="filter-btn" data-filter="video">Video</button>
+    <button class="filter-btn" data-filter="strategy">Strategy</button>
+  </div>
+
+  <div class="toc-list" id="tocList">
+    <!-- Design -->
+    <a class="toc-item" data-type="design" href="#gallery-jiangzhong">
+      <div class="toc-num">01</div>
+      <div class="toc-main">
+        <h3>江中「成为你的最后一口」系列海报</h3>
+        <p>以美食插画结合谐音梗文案，传递品牌助消化产品卖点的系列商业海报。</p>
+      </div>
+      <div class="toc-type">Design / 插画</div>
+      <div class="toc-year">2024</div>
+    </a>
+
+    <a class="toc-item" data-type="design" href="#gallery-xingqi">
+      <div class="toc-num">02</div>
+      <div class="toc-main">
+        <h3>兴齐眼药「看见世间的清澈」系列海报</h3>
+        <p>角膜护眼公益主题系列海报，以梦幻插画风格传递"爱护角膜"理念，覆盖全年龄段受众。</p>
+      </div>
+      <div class="toc-type">Design / 海报</div>
+      <div class="toc-year">2024</div>
+    </a>
+
+    <a class="toc-item" data-type="design" href="#gallery-haoshi">
+      <div class="toc-num">03</div>
+      <div class="toc-main">
+        <h3>豪士面包「豪士档案集」系列海报</h3>
+        <p>以面包纹理为面部基底，用简笔线条勾勒老年人、打工人、宝宝三类核心受众的拟人形象平面海报。</p>
+      </div>
+      <div class="toc-type">Design / 海报</div>
+      <div class="toc-year">2024</div>
+    </a>
+
+    <!-- Video -->
+    <a class="toc-item" data-type="video" href="#gallery-paopao">
+      <div class="toc-num">04</div>
+      <div class="toc-main">
+        <h3>泡泡玛特 20 周年「借我一抹湖蓝色」</h3>
+        <p>泡泡玛特 MOLLY 20 周年主题品牌影片，温暖治愈的插画质感，讲述品牌与用户之间的情感连接。</p>
+      </div>
+      <div class="toc-type">Video / 品牌影片</div>
+      <div class="toc-year">2026</div>
+    </a>
+
+    <!-- Strategy -->
+    <a class="toc-item" data-type="strategy" href="#strategy-hbn">
+      <div class="toc-num">05</div>
+      <div class="toc-main">
+        <h3>HBN「我有我脸色」营销策划案</h3>
+        <p>围绕"脸色"双重含义构建核心创意"我有我脸色"，鼓励女性亮出自信真脸色的完整营销策划。</p>
+      </div>
+      <div class="toc-type">Strategy / 策划</div>
+      <div class="toc-year">2024</div>
+    </a>
+
+    <a class="toc-item" data-type="strategy" href="#strategy-paopao">
+      <div class="toc-num">06</div>
+      <div class="toc-main">
+        <h3>泡泡玛特「我懂你的颜色」营销策划案</h3>
+        <p>以颜色为情感密码，解构泡泡玛特 IP 矩阵的色彩谱系，构建潮玩品牌的色彩营销体系与传播策略。</p>
+      </div>
+      <div class="toc-type">Strategy / 策划</div>
+      <div class="toc-year">2026</div>
+    </a>
+  </div>
+
+  <!-- 作品画廊 -->
+  <div class="gallery-section">
+    <div class="gallery-label">Selected Works — 平面作品展示 <span class="click-hint">点击交互</span></div>
+
+    <!-- 江中系列 -->
+    <div class="series-block" id="gallery-jiangzhong">
+      <div class="series-header">
+        <h4>江中「成为你的最后一口」系列</h4>
+        <span class="series-meta">3 Posters · 2024</span>
+      </div>
+      <p class="series-desc">为江中品牌设计的「成为你的最后一口」主题系列插画海报，以美食插画结合谐音梗文案——"一饼勾消""夜消云散""肆意消萨"，巧妙传递品牌助消化的产品卖点，画风温暖治愈，文案诙谐有记忆点。</p>
+      <div class="series-grid">
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/QHLgbXfqyJ" alt="江中成为你的最后一口-一饼勾消" loading="lazy" data-desc="以披萨美食插画为主体，谐音「一饼勾消」——一口披萨下肚，消化烦恼全消。暖黄色调与手绘质感，将助消化产品卖点融入轻松诙谐的美食场景。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/QAN0oGXmUU" alt="江中成为你的最后一口-夜消云散" loading="lazy" data-desc="以深夜夜宵场景呈现「夜消云散」的谐音梗——美食之后，消化不良的担忧烟消云散。温暖治愈的画风，传递品牌助消化的产品承诺。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/DIHQUilU2V" alt="江中成为你的最后一口-肆意消萨" loading="lazy" data-desc="以「肆意消萨」谐音「肆意潇洒」，鼓励消费者尽情享受美食而无后顾之忧。插画风格活泼大胆，文案诙谐有记忆点。"></div>
+      </div>
+    </div>
+
+    <!-- 兴齐眼药系列 -->
+    <div class="series-block" id="gallery-xingqi">
+      <div class="series-header">
+        <h4>兴齐眼药「看见世间的清澈」系列</h4>
+        <span class="series-meta">3 Posters · 2024</span>
+      </div>
+      <p class="series-desc">为兴齐眼药设计的角膜护眼公益主题系列海报，以「看见世间的清澈」为核心概念，用梦幻星空、鲸鱼、儿童等意象构建诗意画面——"最初的清澈""万千星河""世间温柔"，传递爱护角膜、守护视力的公益理念。</p>
+      <div class="series-grid">
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/82qB2zUY7S" alt="兴齐眼药-最初的清澈" loading="lazy" data-desc="以梦幻星空与鲸鱼意象构建「最初的清澈」，用诗意画面传递角膜护眼的公益理念，呼吁守护视力最初的清澈。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/XHcXGLT2m8" alt="兴齐眼药-万千星河" loading="lazy" data-desc="以万千星河为视觉核心，用梦幻插画风格呈现角膜护眼主题，传递「爱护角膜、守护视力」的温暖公益理念。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/b0QUjOIied" alt="兴齐眼药-世间温柔" loading="lazy" data-desc="以儿童与温柔意象构建「世间温柔」，用治愈系插画传递角膜护眼的温暖理念，覆盖全年龄段受众。"></div>
+      </div>
+    </div>
+
+    <!-- 豪士面包系列 -->
+    <div class="series-block" id="gallery-haoshi">
+      <div class="series-header">
+        <h4>豪士面包「豪士档案集」系列</h4>
+        <span class="series-meta">3 Posters · 2024</span>
+      </div>
+      <p class="series-desc">为豪士面包设计的分人群拟人形象系列平面海报，以真实面包纹理为面部基底，用深蓝色简笔线条勾勒老年人、打工人、宝宝三类核心消费群体的性格特征与生活状态，配合差异化文案精准触达各人群需求。</p>
+      <div class="series-grid">
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/eIYdsnzrqC" alt="豪士面包-老年人海报" loading="lazy" data-matte="1" data-desc="以面包纹理为面部基底，用简笔线条勾勒老年人的性格化形象，配合差异化文案精准触达老年消费群体的生活状态与需求。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/lGxnZarySI" alt="豪士面包-打工人海报" loading="lazy" data-matte="1" data-desc="以面包纹理为面部基底，用简笔线条勾勒打工人的日常状态，配合诙谐文案精准触达职场人群的消费场景与情感共鸣。"></div>
+        <div class="poster-item"><img src="https://aka.doubaocdn.com/s/UrolrrEkZ6" alt="豪士面包-宝宝海报" loading="lazy" data-matte="1" data-desc="以面包纹理为面部基底，用简笔线条勾勒宝宝的可爱形象，配合童趣文案精准触达母婴消费群体的需求与偏好。"></div>
+      </div>
+    </div>
+
+    <!-- 泡泡玛特20周年视频 -->
+    <div class="series-block" id="gallery-paopao">
+      <div class="series-header">
+        <h4>泡泡玛特 20 周年「借我一抹湖蓝色」</h4>
+        <span class="series-meta">Brand Film · 2026</span>
+      </div>
+      <p class="series-desc">泡泡玛特 MOLLY 20 周年主题品牌影片，以温暖治愈的插画质感与色彩叙事，呈现品牌与用户之间的情感连接。</p>
+      <div class="video-wrap">
+        <video controls preload="metadata" poster="https://aka.doubaocdn.com/s/y8d6aY3DPG" playsinline>
+          <source src="https://aka.doubaocdn.com/s/T7eHJTI8Uw" type="video/mp4">
+          您的浏览器不支持 HTML5 视频播放，请<a href="https://aka.doubaocdn.com/s/T7eHJTI8Uw" target="_blank" rel="noopener">点击这里下载观看</a>。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- HBN策划案 -->
+  <div class="strategy-card" id="strategy-hbn">
+    <div class="strategy-cover">
+      <img src="https://aka.doubaocdn.com/s/6Q22VUaMfY" alt="HBN策划案封面">
+      <span class="pdf-tag">Marketing Strategy · PDF</span>
+    </div>
+    <div class="strategy-content">
+      <div class="strategy-tag">Featured Strategy</div>
+      <h3>HBN「我有我脸色」营销策划案</h3>
+      <p>围绕"脸色"的双重含义——肌肤状态与情绪态度——构建核心创意"我有我脸色"。从当代女性被迫承受他人"脸色"的社会洞察切入，鼓励女性不再隐藏、不再忍受，亮出自信的"真脸色"。策划案包含市场洞察、核心创意推导、传播策略与执行规划。</p>
+      <a href="https://aka.doubaocdn.com/s/sXZPXi5FWd" class="btn" target="_blank">查看完整策划案</a>
+      <div class="strategy-meta">
+        <div>Role<strong>策略策划</strong></div>
+        <div>Brand<strong>HBN</strong></div>
+        <div>Year<strong>2024</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 泡泡玛特策划案 -->
+  <div class="strategy-card" id="strategy-paopao">
+    <div class="strategy-cover">
+      <img src="https://aka.doubaocdn.com/s/rySQWhAoMl" class="cover-left" alt="泡泡玛特我懂你的颜色策划案封面">
+      <span class="pdf-tag">Marketing Strategy · PDF</span>
+    </div>
+    <div class="strategy-content">
+      <div class="strategy-tag">Featured Strategy</div>
+      <h3>泡泡玛特「我懂你的颜色」营销策划案</h3>
+      <p>以「颜色」为核心隐喻，解构泡泡玛特 IP 矩阵的情感色彩谱系，将色彩转化为品牌与用户之间的情感密码。策划案包含市场洞察、色彩营销体系、传播策略与线下体验设计，探索潮玩品牌如何用色彩抵达人心、构建长期情感连接。</p>
+      <a href="https://aka.doubaocdn.com/s/VxOev7lxjo" class="btn" target="_blank">查看完整策划案</a>
+      <div class="strategy-meta">
+        <div>Role<strong>策略策划</strong></div>
+        <div>Brand<strong>POP MART</strong></div>
+        <div>Year<strong>2026</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+  <div class="section-label">03 — Profile</div>
+  <h2 class="section-title">关于我<em>About</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>我是沈达人，暨南大学传播学硕士，主攻智能营销与消费者行为，本科广告学出身。我相信好的营销始于对人的深刻理解，作品则是这份理解最诚实的表达。</p>
+      <p>从消费者洞察到品牌叙事，我习惯把研究变成动人的创意——无论是插画海报、IP 形象，还是整合营销方案，都希望它好看、好懂，也能被记住。</p>
+      <p>对我而言，创作是一场持续的观察与对话：观察人，理解品牌，再用设计、策略与内容，让它们在真实的生活里相遇。</p>
+    </div>
+    <div class="skills-table">
+      <div class="skill-row">
+        <div class="skill-cat">Design</div>
+        <div class="skill-items"><span>商业插画</span><span>海报设计</span><span>IP形象</span><span>视觉排版</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Strategy</div>
+        <div class="skill-items"><span>品牌策划</span><span>整合营销</span><span>消费者研究</span><span>内容策略</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Creative</div>
+        <div class="skill-items"><span>文案撰写</span><span>创意概念</span><span>AIGC</span><span>视频剪辑</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Tools</div>
+        <div class="skill-items"><span>Photoshop</span><span>Illustrator</span><span>Premiere</span><span>Figma</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<footer id="contact" class="colophon">
+  <div class="section-label">04 — Colophon</div>
+  <h2 class="section-title" style="color:var(--paper);">联系<em style="color:rgba(245,240,232,0.5);">Get in Touch</em></h2>
+  <div class="colophon-grid">
+    <div>
+      <h4>Email</h4>
+      <p>欢迎合作、交流或只是打个招呼。</p>
+      <a href="mailto:elvis0502@163.com" class="big-email">elvis0502@163.com</a>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <p>小红书 · 813351122</p>
+      <p>手机 / 微信 · <a href="tel:18289870502">18289870502</a></p>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p>广州 · 深圳</p>
+      <p>中国</p>
+    </div>
+  </div>
+  <div class="colophon-bottom">
+    <span>© 2026 Daron Shen. All rights reserved.</span>
+    <span>Set in Playfair Display & Noto Serif SC</span>
+    <span>Vol.01 — 2026</span>
+  </div>
+</footer>
+
+<!-- Unreveal 全屏揭示预览 -->
+<div class="reveal-overlay"><div class="reveal-overlay__inner"></div></div>
+<div class="work-preview" id="workPreview">
+  <button class="work-preview__close" id="previewClose" aria-label="关闭预览">&times;</button>
+  <div class="work-preview__inner">
+    <div class="work-preview__media">
+      <div class="work-preview__img-outer">
+        <div class="work-preview__img-wrap">
+          <div class="work-preview__img"></div>
+        </div>
+      </div>
+      <div class="work-preview__video-outer">
+        <div class="work-preview__video-wrap">
+          <video class="work-preview__video" id="previewVideo" controls playsinline></video>
+        </div>
+      </div>
+    </div>
+    <div class="work-preview__info">
+      <span class="work-preview__type"></span>
+      <h3 class="work-preview__series"></h3>
+      <p class="work-preview__desc"></p>
+      <a class="work-preview__btn" id="previewBtn" href="#" target="_blank" rel="noopener">查看完整策划案</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const filterBtns = document.querySelectorAll('.filter-btn');
+const tocItems = document.querySelectorAll('.toc-item');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    tocItems.forEach(item => {
+      if (filter === 'all' || item.dataset.type === filter) {
+        item.style.display = 'grid';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ===== Unreveal 全屏揭示预览（圆形揭示）=====
+(function(){
+  if (typeof gsap === 'undefined') return;
+  const overlay = document.querySelector('.reveal-overlay');
+  const overlayInner = document.querySelector('.reveal-overlay__inner');
+  const preview = document.getElementById('workPreview');
+  const previewImg = preview.querySelector('.work-preview__img');
+  const previewImgOuter = preview.querySelector('.work-preview__img-outer');
+  const previewImgWrap = preview.querySelector('.work-preview__img-wrap');
+  const previewVideo = document.getElementById('previewVideo');
+  const previewVideoOuter = preview.querySelector('.work-preview__video-outer');
+  const previewVideoWrap = preview.querySelector('.work-preview__video-wrap');
+  const seriesEl = preview.querySelector('.work-preview__series');
+  const typeEl = preview.querySelector('.work-preview__type');
+  const descEl = preview.querySelector('.work-preview__desc');
+  const btnEl = document.getElementById('previewBtn');
+  const closeBtn = document.getElementById('previewClose');
+  let isAnimating = false;
+  let currentMode = 'image';
+
+  function setMode(mode) {
+    currentMode = mode;
+    previewImgOuter.style.display = (mode === 'image' || mode === 'hbn') ? 'block' : 'none';
+    previewVideoOuter.style.display = (mode === 'video') ? 'block' : 'none';
+    btnEl.style.display = (mode === 'hbn') ? 'inline-block' : 'none';
+  }
+
+  function openPreview(opts) {
+    if (isAnimating) return;
+    isAnimating = true;
+    setMode(opts.mode);
+    seriesEl.textContent = opts.series;
+    typeEl.textContent = opts.type;
+    descEl.textContent = opts.desc;
+    if (opts.mode === 'video') {
+      previewVideo.src = opts.src;
+      if (opts.poster) previewVideo.poster = opts.poster;
+    } else {
+      previewImg.style.backgroundImage = 'url(' + opts.src + ')';
+      previewImgOuter.classList.toggle('has-matte', !!opts.matte);
+    }
+    if (opts.mode === 'hbn') btnEl.href = opts.link || '#';
+
+    const mediaEl = (opts.mode === 'video') ? previewVideo : previewImg;
+    const mediaWrap = (opts.mode === 'video') ? previewVideoWrap : previewImgWrap;
+
+    gsap.timeline({
+      defaults: { duration: 1.1, ease: 'expo' },
+      onStart: () => {
+        document.body.classList.add('preview-open');
+        preview.classList.add('is-open');
+        gsap.set(mediaEl, { xPercent: 100 });
+        gsap.set(mediaWrap, { xPercent: -102, opacity: 0 });
+        gsap.set([seriesEl, typeEl, descEl], { yPercent: 100, opacity: 0 });
+        gsap.set(closeBtn, { opacity: 0, scale: 0.7 });
+        gsap.set(overlay, { visibility: 'visible' });
+      },
+      onComplete: () => { isAnimating = false; }
+    })
+    .addLabel('start', 0)
+    .addLabel('preview', 'start+=0.3')
+    .to(overlayInner, { ease: 'power2', startAt: { scale: 0 }, scale: 1 }, 'start')
+    .to([mediaEl, mediaWrap], { xPercent: 0 }, 'preview')
+    .to(mediaWrap, { opacity: 1 }, 'preview')
+    .to([seriesEl, typeEl, descEl], { yPercent: 0, opacity: 1, stagger: 0.06 }, 'preview')
+    .to(closeBtn, { ease: 'power2', opacity: 1, scale: 1 }, 'preview');
+  }
+
+  function closePreview() {
+    if (isAnimating) return;
+    isAnimating = true;
+    const mediaEl = (currentMode === 'video') ? previewVideo : previewImg;
+    const mediaWrap = (currentMode === 'video') ? previewVideoWrap : previewImgWrap;
+    gsap.timeline({
+      defaults: { duration: 1, ease: 'power4' },
+      onComplete: () => {
+        document.body.classList.remove('preview-open');
+        preview.classList.remove('is-open');
+        gsap.set(overlay, { visibility: 'hidden' });
+        gsap.set(overlayInner, { scale: 0 });
+        if (currentMode === 'video') { previewVideo.pause(); previewVideo.removeAttribute('src'); previewVideo.load(); }
+        isAnimating = false;
+      }
+    })
+    .addLabel('start', 0)
+    .to(closeBtn, { ease: 'power2', opacity: 0, scale: 0.7 }, 'start')
+    .to([seriesEl, typeEl, descEl], { ease: 'power2', yPercent: 15, opacity: 0, stagger: 0.04 }, 'start')
+    .to(mediaEl, { xPercent: -100 }, 'start')
+    .to(mediaWrap, { xPercent: 100, opacity: 1 }, 'start')
+    .to(overlayInner, { duration: 0.7, ease: 'power2.in', scale: 0 }, 'start+=0.3');
+  }
+
+  // 海报图片（读取独立 data-desc，深色海报加衬底）
+  document.querySelectorAll('.poster-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const block = img.closest('.series-block');
+      openPreview({
+        mode: 'image',
+        src: img.currentSrc || img.src,
+        matte: img.dataset.matte,
+        series: (block.querySelector('.series-header h4') || {}).textContent || '',
+        type: (block.querySelector('.series-header .series-meta') || {}).textContent || '',
+        desc: img.dataset.desc || (block.querySelector('.series-desc') || {}).textContent || ''
+      });
+    });
+  });
+
+  closeBtn.addEventListener('click', closePreview);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePreview(); });
+})();
+
+// ===== Theodore 风格全屏菜单（SVG 波浪过渡）=====
+document.addEventListener('DOMContentLoaded', function(){
+  const overlayPath = document.querySelector('.theo-overlay__path');
+  const menu = document.getElementById('theoMenu');
+  const menuItems = menu.querySelectorAll('.theo-menu__item');
+  const trigger = document.querySelector('.menu-trigger');
+  const closeBtn = menu.querySelector('.theo-menu__close');
+  let isAnimating = false;
+
+  function openMenu() {
+    if (isAnimating) return;
+    isAnimating = true;
+    gsap.timeline({
+      onComplete: () => { isAnimating = false; }
+    })
+    .set(overlayPath, { attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' } })
+    .to(overlayPath, { duration: 0.8, ease: 'power4.in', attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' } }, 0)
+    .to(overlayPath, {
+      duration: 0.3, ease: 'power2',
+      attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
+      onComplete: () => {
+        document.body.classList.add('menu-open');
+        menu.classList.add('is-open');
+      }
+    })
+    .set(menuItems, { opacity: 0 })
+    .set(overlayPath, { attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' } })
+    .to(overlayPath, { duration: 0.3, ease: 'power2.in', attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' } })
+    .to(overlayPath, { duration: 0.8, ease: 'power4', attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' } })
+    .to(menuItems, {
+      duration: 1.1, ease: 'power4',
+      startAt: { y: 120 }, y: 0, opacity: 1, stagger: 0.06
+    }, '>-=1.1');
+  }
+
+  function closeMenu() {
+    if (isAnimating) return;
+    isAnimating = true;
+    gsap.timeline({
+      onComplete: () => { isAnimating = false; }
+    })
+    .set(overlayPath, { attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' } })
+    .to(overlayPath, { duration: 0.8, ease: 'power4.in', attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' } }, 0)
+    .to(overlayPath, {
+      duration: 0.3, ease: 'power2',
+      attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
+      onComplete: () => {
+        menu.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+      }
+    })
+    .set(overlayPath, { attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' } })
+    .to(overlayPath, { duration: 0.3, ease: 'power2.in', attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' } })
+    .to(overlayPath, { duration: 0.8, ease: 'power4', attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' } })
+    .to(menuItems, { duration: 0.6, ease: 'power2.in', y: 80, opacity: 0, stagger: -0.04 }, 0);
+  }
+
+  trigger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+  });
+
+  // 菜单项点击：关闭菜单后平滑滚动
+  menuItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = item.getAttribute('href');
+      closeMenu();
+      setTimeout(() => {
+        if (href === '#top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 900);
+    });
+  });
+
+  // 页面加载后自动打开菜单（等 GSAP 就绪）
+  function tryAutoOpen() {
+    if (typeof gsap !== 'undefined') {
+      setTimeout(openMenu, 400);
+    } else {
+      setTimeout(tryAutoOpen, 120);
+    }
+  }
+  if (document.readyState === 'complete') {
+    tryAutoOpen();
+  } else {
+    window.addEventListener('load', tryAutoOpen);
+  }
+});
+</script>
+
+<!-- Theodore 风格全屏菜单 -->
+<svg class="theo-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="theo-overlay__path" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
+</svg>
+<div class="theo-menu" id="theoMenu">
+  <div class="theo-tiles">
+    <div class="theo-tiles__line">
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/QHLgbXfqyJ)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/82qB2zUY7S)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/eIYdsnzrqC)"></div>
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/QHLgbXfqyJ)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/82qB2zUY7S)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/eIYdsnzrqC)"></div>
+    </div>
+    <div class="theo-tiles__line">
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/QAN0oGXmUU)"></div>
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/6Q22VUaMfY)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/XHcXGLT2m8)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/QAN0oGXmUU)"></div>
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/rySQWhAoMl)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/XHcXGLT2m8)"></div>
+    </div>
+    <div class="theo-tiles__line">
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/DIHQUilU2V)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/lGxnZarySI)"></div>
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/y8d6aY3DPG)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/DIHQUilU2V)"></div>
+      <div class="theo-tiles__img" style="background-image:url(https://aka.doubaocdn.com/s/lGxnZarySI)"></div>
+      <div class="theo-tiles__img theo-tiles__img--large" style="background-image:url(https://aka.doubaocdn.com/s/y8d6aY3DPG)"></div>
+    </div>
+  </div>
+  <nav class="theo-menu__nav">
+    <a class="theo-menu__item" href="#top">
+      <span class="theo-menu__item-num">01</span>
+      <span class="theo-menu__item-text">Home</span>
+      <span class="theo-menu__item-sub">回到首页</span>
+    </a>
+    <a class="theo-menu__item" href="#work">
+      <span class="theo-menu__item-num">02</span>
+      <span class="theo-menu__item-text">Works</span>
+      <span class="theo-menu__item-sub">精选作品</span>
+    </a>
+    <a class="theo-menu__item" href="#about">
+      <span class="theo-menu__item-num">03</span>
+      <span class="theo-menu__item-text">About</span>
+      <span class="theo-menu__item-sub">自我介绍</span>
+    </a>
+    <a class="theo-menu__item" href="#contact">
+      <span class="theo-menu__item-num">04</span>
+      <span class="theo-menu__item-text">Contact</span>
+      <span class="theo-menu__item-sub">联系方式</span>
+    </a>
+  </nav>
+  <div class="theo-menu__footer">
+    <span>elvis0502@163.com</span>
+    <span>小红书 813351122</span>
+    <span>微信/手机 18289870502</span>
+  </div>
+  <button class="theo-menu__close" aria-label="关闭菜单">&times;</button>
+</div>
+
+</body>
+</html>
